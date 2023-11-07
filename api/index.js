@@ -6,6 +6,7 @@ import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import Cors from 'cors'
 dotenv.config();
 
 mongoose
@@ -28,7 +29,7 @@ var corsOptions = {
   origin: 'http://localhost:5173/',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
-app.use(cors(corsOptions));
+app.use(Cors(corsOptions));
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');
