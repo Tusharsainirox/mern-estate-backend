@@ -24,6 +24,11 @@ const app = express();
 app.use(express.json());
 
 app.use(cookieParser());
+var corsOptions = {
+  origin: 'http://localhost:5173/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');
